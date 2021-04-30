@@ -12,7 +12,7 @@ public class Product {
     private Long id;
     private String name;
     private BigDecimal price;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
