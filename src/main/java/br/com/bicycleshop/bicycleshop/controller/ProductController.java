@@ -2,7 +2,6 @@ package br.com.bicycleshop.bicycleshop.controller;
 
 import br.com.bicycleshop.bicycleshop.controller.response.ProductResponse;
 import br.com.bicycleshop.bicycleshop.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +18,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<ProductResponse> getProductById(final Long id){
+    public ResponseEntity<ProductResponse> getProductById(final Long id) {
         return ResponseEntity.ok(productService.findProductById(id));
     }
-
-
 }
