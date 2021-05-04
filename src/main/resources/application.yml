@@ -1,1 +1,14 @@
-
+spring:
+  profile: qa
+  application:
+    name: bicycleshop
+  datasource:
+    url: jdbc:mysql://172.17.0.3:3306/db_bicycleshop
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: db_bicycleshop_user
+    password: db_bicycleshop_password
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    show-sql: true
