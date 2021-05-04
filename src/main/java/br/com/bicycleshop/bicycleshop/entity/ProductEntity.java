@@ -4,16 +4,19 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "product")
+@Table(name = "PRODUCT")
 public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PRODUCT_ID")
     private Long id;
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "PRICE")
     private BigDecimal price;
     @ManyToOne
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "CATEGORY_ID")
     private CategoryEntity categoryEntity;
 
     public Long getId() {
