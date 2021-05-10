@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  bicycleshop:
+    build: ./
+    container-name: bicycleshop
+    ports:
+      "8080:8080"
+      "3306:3306"
+  database:
+    container-name: mysql
+    environment:
+      MYSQL_DATABASE: bicycleshop
+      MYSQL_ALLOW_EMPTY_PASSWORD: true,
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: db_bicycleshop_user
+      MYSQL_PASSWORD: db_bicycleshop_password
+    port:
+      3306
+
