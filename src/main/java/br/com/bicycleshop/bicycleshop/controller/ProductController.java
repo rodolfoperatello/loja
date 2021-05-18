@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.awt.print.Pageable;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/product")
@@ -22,5 +25,10 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<ProductResponse> getProductById(@PathVariable final Long id) {
         return ResponseEntity.ok(productService.findProductById(id));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ProductResponse>> findAllProducts(Pageable pageable){
+        return ResponseEntity.ok().body(productService.findAll(pageable));
     }
 }
