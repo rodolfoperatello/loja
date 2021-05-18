@@ -1,5 +1,5 @@
 spring:
-  profile: qa
+  profile: dev
   application:
     name: bicycleshop
   datasource:
