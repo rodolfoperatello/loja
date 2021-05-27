@@ -1,16 +1,19 @@
 spring:
   profile: dev
   application:
-    name: bicycleshop
+    name: loja
   datasource:
-    url: jdbc:mysql://db_loja:3306/db_loja
-    driverClassName: com.mysql.cj.jdbc.Driver
-    username: db_bicycleshop_user
-    password: db_bicycleshop_password
+    url: jdbc:postgresql://localhost:5432/lojadb
+    username: loja
+    password: lojapw
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
         ddl-auto: none
         show-sql: true
+
+
+
+
+
 
