@@ -3,7 +3,8 @@ spring:
   application:
     name: loja
   datasource:
-    url: jdbc:postgresql://localhost:5432/lojadb
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db:5432/lojadb
     username: loja
     password: lojapw
   jpa:
@@ -11,6 +12,8 @@ spring:
       hibernate:
         ddl-auto: none
         show-sql: true
+        database: postgresql
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 
 
