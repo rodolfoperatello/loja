@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   profile: dev
   application:
@@ -14,6 +17,15 @@ spring:
         show-sql: true
         database: postgresql
         database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
+
+
 
 
 

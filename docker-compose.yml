@@ -6,17 +6,21 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     image: loja
+    container_name: loja
     restart: always
     ports:
       - 8080:8080
     environment:
       - PROFILE=dev
-    links:
-      - db
     depends_on:
       - db
+      - eureka-server
+    links:
+      - db
+      - eureka-server
   db:
     image: postgres
+    container_name: db
     restart: always
     ports:
     - 5432:5432
@@ -24,3 +28,11 @@ services:
       - POSTGRES_USER=loja
       - POSTGRES_PASSWORD=lojapw
       - POSTGRES_DB=lojadb
+  eureka-server:
+    build:
+      context: ../eureka-server
+      dockerfile: ./Dockerfile
+    container_name: eureka-server
+    restart: always
+    ports:
+    - 8761:8761
