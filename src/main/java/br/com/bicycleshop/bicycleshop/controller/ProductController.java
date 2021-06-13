@@ -9,18 +9,13 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 
     private final ProductService productService;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
-    }
-
-    @GetMapping("/id")
-    public ResponseEntity<ProductResponse> findProductById(@PathVariable final Long id) {
-        return ResponseEntity.ok(productService.findProductById(id));
     }
 
     @GetMapping
