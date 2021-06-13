@@ -1,10 +1,10 @@
-FROM openjdk:11
+FROM openjdk:8-jre-alpine
 
 MAINTAINER rodolfoperatello
 
 ENV PROFILE=${PROFILE}
 
-WORKDIR /application/bicycleshop
+WORKDIR /application/bicycleshop/
 
 COPY /build/libs/bicycleshop-*.jar bicycleshop.jar
 

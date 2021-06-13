@@ -13,14 +13,14 @@ services:
     environment:
       - PROFILE=dev
     depends_on:
-      - db
+      - loja_db
       - eureka-server
     links:
-      - db
+      - loja_db
       - eureka-server
-  db:
+  loja_db:
     image: postgres
-    container_name: db
+    container_name: loja_db
     restart: always
     ports:
     - 5432:5432
@@ -28,10 +28,33 @@ services:
       - POSTGRES_USER=loja
       - POSTGRES_PASSWORD=lojapw
       - POSTGRES_DB=lojadb
+  fornecedor:
+    build:
+      context: ../fornecedor
+      dockerfile: ./Dockerfile
+    container_name: fornecedor
+    restart: always
+    ports:
+    - 8081:8081
+    environment:
+      - PROFILE=dev
+    depends_on:
+      - fornecedor_db
+  fornecedor_db:
+    image: postgres
+    container_name: fornecedor_db
+    restart: always
+    ports:
+    - 5433:5433
+    environment:
+      - POSTGRES_USER=fornecedor
+      - POSTGRES_PASSWORD=fornecedordb
+      - POSTGRES_DB=fornecedordb
+
   eureka-server:
     build:
       context: ../eureka-server
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile
     container_name: eureka-server
     restart: always
     ports:
