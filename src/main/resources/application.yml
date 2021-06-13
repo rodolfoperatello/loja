@@ -7,16 +7,15 @@ spring:
     name: loja
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://db:5432/lojadb
+    url: jdbc:postgresql://loja_db:5432/lojadb
     username: loja
     password: lojapw
   jpa:
-    properties:
       hibernate:
         ddl-auto: none
-        show-sql: true
-        database: postgresql
-        database-platform: org.hibernate.dialect.PostgreSQLDialect
+      show-sql: true
+      database: postgresql
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 eureka:
   client:
